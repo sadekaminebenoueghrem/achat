@@ -13,8 +13,8 @@ pipeline {
 
         stage('Code checkout from GitHub') {
             steps {
-                git branch: 'docker',
-                    url: 'https://github.com/AladdinBelhaj/achat.git'
+                git branch: 'main',
+                    url: 'https://github.com/sadekaminebenoueghrem/achat.git'
             }
         }
 
@@ -42,8 +42,8 @@ pipeline {
           steps {
             sh '''
              docker build -t achat .
-             docker compose down -v || true
-             docker compose up -d --build
+             docker-compose down -v || true
+             docker-compose up -d --build
              '''
        }
     }
